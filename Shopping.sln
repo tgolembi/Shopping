@@ -11,7 +11,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{351A1025-B7EC-4F22-BCE4-F2E9FDC8C503}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shopping.Services.CouponAPI", "Shopping.Services.CouponAPI\Shopping.Services.CouponAPI.csproj", "{9920CF82-2C49-4F4D-98E9-80D1D95BDECC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shopping.Services.CouponAPI", "Shopping.Services.CouponAPI\Shopping.Services.CouponAPI.csproj", "{9920CF82-2C49-4F4D-98E9-80D1D95BDECC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{85DEDE6E-ACAC-468B-ADA8-185851007314}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
