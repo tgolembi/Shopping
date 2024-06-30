@@ -1,6 +1,6 @@
 # Shopping
 
-Portfolio demonstration of a simple shopping web app.
+Portfolio demonstration of a simple shopping web app using microservices.
 
  - Platform/Framework: .NET8
  - Architecture: Microservices
