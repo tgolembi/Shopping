@@ -6,8 +6,8 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- script: echo Pushing GitHub Repo to Azure DevOps..
+  displayName: 'PushToAzure'
 
 - checkout: self
 
