@@ -1,5 +1,9 @@
 # shopping
 
-Shopping Microservices C#.NET
+A portfolio demonstration of a simple shopping platform.
 
-A portfolio demonstration of a simple shopping platform, written in C# .NET8, using microservices architecture.
+ - Platform/Framework: .NET8
+ - Architecture: Microservices
+ - Database: SQL Server 2022 16.0
+ - Language: C#
+
