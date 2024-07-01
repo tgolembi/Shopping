@@ -118,6 +118,8 @@ namespace Shopping.Services.CouponAPI.Controllers
             {
                 Coupon obj = _mapper.Map<Coupon>(couponDTO);
 
+                //TODO: verificar se existe no DB?
+
                 if (obj == null)
                 {
                     _response.Result = couponDTO;
@@ -146,6 +148,7 @@ namespace Shopping.Services.CouponAPI.Controllers
             try
             {
                 Coupon? obj = _dbContext.Coupons.FirstOrDefault(c => c.CouponId == id);
+                //Ou Any()?
 
                 if (obj == null)
                 {
