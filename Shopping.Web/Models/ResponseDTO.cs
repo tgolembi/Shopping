@@ -1,4 +1,4 @@
-﻿namespace Shopping.Web.Models.DTO
+﻿namespace Shopping.Web.Models
 {
     public class ResponseDTO
     {
