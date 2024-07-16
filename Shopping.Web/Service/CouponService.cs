@@ -1,38 +1,73 @@
 ﻿using Shopping.Web.Models;
 using Shopping.Web.Service.IService;
+using Shopping.Web.Enumerators;
 
 namespace Shopping.Web.Service
 {
     public class CouponService : ICouponService
     {
-        Task<ResponseDTO?> ICouponService.CreateCouponAsync (CouponDTO coupon)
+        private readonly IBaseService _baseService;
+
+        public CouponService (IBaseService baseService)
         {
-            throw new NotImplementedException();
+            _baseService = baseService;
+        }
+        
+
+        public async Task<ResponseDTO?> CreateCouponAsync (CouponDTO coupon)
+        {
+            return await _baseService.SendAsync(new RequestDTO()
+            {
+                ApiMethod = StaticDetails.ApiMethod.POST,
+                Url = $"{StaticDetails.CouponAPIBase}/coupon/",
+                Data = coupon
+            });
+        }
+        public async Task<ResponseDTO?> UpdateCouponAsync (CouponDTO coupon)
+        {
+            return await _baseService.SendAsync(new RequestDTO()
+            {
+                ApiMethod = StaticDetails.ApiMethod.PUT,
+                Url = $"{StaticDetails.CouponAPIBase}/coupon/",
+                Data = coupon
+            });
         }
 
-        Task<ResponseDTO?> ICouponService.DeleteCouponAsync (int couponId)
+        public async Task<ResponseDTO?> DeleteCouponAsync (int couponId)
         {
-            throw new NotImplementedException();
+            return await _baseService.SendAsync(new RequestDTO()
+            {
+                ApiMethod = StaticDetails.ApiMethod.DELETE,
+                Url = $"{StaticDetails.CouponAPIBase}/coupon/{couponId}"
+            });
         }
 
-        Task<ResponseDTO?> ICouponService.GetAllCouponsAsync ()
+        public async Task<ResponseDTO?> GetAllCouponsAsync ()
         {
-            throw new NotImplementedException();
+            return await _baseService.SendAsync(new RequestDTO()
+            {
+                ApiMethod = StaticDetails.ApiMethod.GET,
+                Url = $"{StaticDetails.CouponAPIBase}/coupon"
+            });
         }
 
-        Task<ResponseDTO?> ICouponService.GetCouponAsync (string couponCode)
+        public async Task<ResponseDTO?> GetCouponAsync (string couponCode)
         {
-            throw new NotImplementedException();
+            return await _baseService.SendAsync(new RequestDTO()
+            {
+                ApiMethod = StaticDetails.ApiMethod.GET,
+                Url = $"{StaticDetails.CouponAPIBase}/coupon/GetByCode/{couponCode}"
+            });
         }
 
-        Task<ResponseDTO?> ICouponService.GetCouponByIdAsync (int couponId)
+        public async Task<ResponseDTO?> GetCouponByIdAsync (int couponId)
         {
-            throw new NotImplementedException();
+            return await _baseService.SendAsync(new RequestDTO()
+            {
+                ApiMethod = StaticDetails.ApiMethod.GET,
+                Url = $"{StaticDetails.CouponAPIBase}/coupon/{couponId}"
+            });
         }
 
-        Task<ResponseDTO?> ICouponService.UpdateCouponAsync (CouponDTO coupon)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
