@@ -7,8 +7,19 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
-    //options.UseSqlServer(builder.Configuration.GetConnectionString("Localhost702"));
-    options.UseSqlServer(builder.Configuration.GetConnectionString("LocalHostIPSTong"));
+    //var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+    //string connectionStringName;
+
+    //if (environment == "Production")
+    //{
+    //    connectionStringName = "SmarterDB";
+    //}
+    //else
+    //{
+    //    connectionStringName = "Localhost702";
+    //}
+    string connectionString = builder.Configuration.GetConnectionString("Localhost702");
+    options.UseSqlServer(connectionString);
 });
 
 IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
