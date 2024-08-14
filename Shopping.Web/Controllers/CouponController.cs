@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Shopping.Web.Service.IService;
 using Shopping.Web.Models;
-using System.Text.Json;
+using Shopping.Web.Tools;
 
 namespace Shopping.Web.Controllers
 {
@@ -21,7 +21,7 @@ namespace Shopping.Web.Controllers
 
             if (response != null && response.Result != null && response.Success)
             {
-                list = JsonSerializer.Deserialize<List<CouponDTO>>(Convert.ToString(response.Result));
+                list = JsonHelper.Deserialize<List<CouponDTO>>(Convert.ToString(response.Result));
             }
 
             return View(list);

@@ -1,7 +1,7 @@
-﻿using Shopping.Web.Models;
+﻿using System.Text;
+using Shopping.Web.Models;
 using Shopping.Web.Service.IService;
-using System.Text.Json;
-using System.Text;
+using Shopping.Web.Tools;
 using static Shopping.Web.Enumerators.StaticDetails;
 
 namespace Shopping.Web.Service
@@ -29,7 +29,7 @@ namespace Shopping.Web.Service
 
                 if (requestDTO.Data != null)
                 {
-                    message.Content = new StringContent(JsonSerializer.Serialize(requestDTO.Data), Encoding.UTF8, "application/json");
+                    message.Content = new StringContent(JsonHelper.Serialize(requestDTO.Data), Encoding.UTF8, "application/json");
                 }
 
                 switch (requestDTO.ApiMethod)
@@ -69,7 +69,7 @@ namespace Shopping.Web.Service
 
                     default:
                         var apiContent = await apiResponse.Content.ReadAsStringAsync();
-                        return JsonSerializer.Deserialize<ResponseDTO>(apiContent);
+                        return JsonHelper.Deserialize<ResponseDTO>(apiContent);
                 }
             }
             catch (Exception ex)
