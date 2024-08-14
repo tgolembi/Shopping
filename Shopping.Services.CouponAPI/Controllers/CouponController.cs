@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace Shopping.Services.CouponAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/coupon")]
     [ApiController]
     public class CouponController : ControllerBase
     {

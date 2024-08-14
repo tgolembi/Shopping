@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
+﻿
 namespace Shopping.Services.CouponAPI.Models.DTO
 {
     public class CouponDTO

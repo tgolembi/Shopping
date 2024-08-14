@@ -1,4 +1,5 @@
-﻿using static Shopping.Web.Enumerators.StaticDetails;
+﻿using System.Net.Mime;
+using static Shopping.Web.Enumerators.StaticDetails;
 
 namespace Shopping.Web.Models
 {
@@ -8,5 +9,5 @@ namespace Shopping.Web.Models
         public required string Url { get; set; }
         public object? Data { get; set; }
         public string? AccessToken { get; set; }
-    }
+	}
 }

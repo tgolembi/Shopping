@@ -7,7 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("Localhost702"));
+    //options.UseSqlServer(builder.Configuration.GetConnectionString("Localhost702"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("LocalHostIPSTong"));
 });
 
 IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();

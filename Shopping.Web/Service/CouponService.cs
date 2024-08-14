@@ -44,11 +44,12 @@ namespace Shopping.Web.Service
 
         public async Task<ResponseDTO?> GetAllCouponsAsync ()
         {
-            return await _baseService.SendAsync(new RequestDTO()
+			var coupons = await _baseService.SendAsync(new RequestDTO()
             {
                 ApiMethod = StaticDetails.ApiMethod.GET,
                 Url = $"{StaticDetails.CouponAPIBase}/coupon"
             });
+            return coupons;
         }
 
         public async Task<ResponseDTO?> GetCouponAsync (string couponCode)
