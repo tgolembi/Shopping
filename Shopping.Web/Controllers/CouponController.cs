@@ -59,5 +59,17 @@ namespace Shopping.Web.Controllers
             }
             return NotFound();
         }
+
+        [HttpPost]
+        public async Task<IActionResult> CouponDelete (CouponDTO coupon)
+        {
+            ResponseDTO? response = await _couponService.DeleteCouponAsync(coupon.CouponId);
+
+            if (response != null && response.Result != null && response.Success)
+            {
+                return RedirectToAction(nameof(CouponIndex));
+            }
+            return View(coupon);
+        }
     }
 }
