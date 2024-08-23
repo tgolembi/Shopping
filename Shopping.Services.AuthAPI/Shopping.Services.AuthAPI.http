@@ -1,0 +1,6 @@
+@Shopping.Services.AuthAPI_HostAddress = http://localhost:5236
+
+GET {{Shopping.Services.AuthAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -7,18 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
-    //var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
-    //string connectionStringName;
-
-    //if (environment == "Production")
-    //{
-    //    connectionStringName = "SmarterDB";
-    //}
-    //else
-    //{
-    //    connectionStringName = "Localhost702";
-    //}
-    string connectionString = builder.Configuration.GetConnectionString("Localhost702");
+    //string? connectionString = builder.Configuration.GetConnectionString("Localhost702");
+    string? connectionString = builder.Configuration.GetConnectionString("LocalHostIPSTong");
+    //string? connectionString = builder.Configuration.GetConnectionString("SmarterDB");
     options.UseSqlServer(connectionString);
 });
 
