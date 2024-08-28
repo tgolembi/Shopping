@@ -7,8 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
-    //string? connectionString = builder.Configuration.GetConnectionString("Localhost702");
-    string? connectionString = builder.Configuration.GetConnectionString("LocalHostIPSTong");
+    string? connectionString = builder.Configuration.GetConnectionString("Localhost702");
+    //string? connectionString = builder.Configuration.GetConnectionString("LocalHostIPSTong");
     //string? connectionString = builder.Configuration.GetConnectionString("SmarterDB");
     options.UseSqlServer(connectionString);
 });

@@ -2,16 +2,20 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Shopping.Services.AuthAPI.Data;
 using Shopping.Services.AuthAPI.Models;
+using Shopping.Services.AuthAPI.Service;
+using Shopping.Services.AuthAPI.Service.IService;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
-	//string? connectionString = builder.Configuration.GetConnectionString("Localhost702");
-	string? connectionString = builder.Configuration.GetConnectionString("LocalHostIPSTong");
+	string? connectionString = builder.Configuration.GetConnectionString("Localhost702");
+	//string? connectionString = builder.Configuration.GetConnectionString("LocalHostIPSTong");
 	//string? connectionString = builder.Configuration.GetConnectionString("SmarterDB");
 	options.UseSqlServer(connectionString);
 });
+
+builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection("ApiSettings:JwtOptions"));
 
 builder.Services
 	   .AddIdentity<ApplicationUser,IdentityRole>()
@@ -19,6 +23,10 @@ builder.Services
 	   .AddDefaultTokenProviders();
 
 builder.Services.AddControllers();
+
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
