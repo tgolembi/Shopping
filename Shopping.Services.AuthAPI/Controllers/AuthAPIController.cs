@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 using Shopping.Services.AuthAPI.Models.DTO;
 using Shopping.Services.AuthAPI.Service.IService;
@@ -49,5 +50,21 @@ namespace Shopping.Services.AuthAPI.Controllers
                 return BadRequest(_response);
             }
         }
+
+        [HttpPost("assignrole")]
+        public async Task<IActionResult> AssignRole ([FromBody] RegistrationDTO userRegistration)
+        {
+			var roleAssigned = await _authService.AssignRole(userRegistration.Email, userRegistration.Role);
+			if (roleAssigned)
+			{
+				_response.Success = true;
+				return Ok(_response);
+			}
+			else
+			{
+				_response.Message = "Role assignment error";
+				return BadRequest(_response);
+			}
+		}
     }
 }

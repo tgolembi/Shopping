@@ -7,5 +7,7 @@ namespace Shopping.Services.AuthAPI.Service.IService
         Task<string> Register (RegistrationDTO registrationDTO);
 
         Task<LoginResponseDTO> Login (LoginRequestDTO loginRequestDTO);
+
+        Task<bool> AssignRole(string email, string roleName);
     }
 }
