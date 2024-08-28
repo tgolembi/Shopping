@@ -7,10 +7,18 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
-    string? connectionString = builder.Configuration.GetConnectionString("Localhost702");
-    //string? connectionString = builder.Configuration.GetConnectionString("LocalHostIPSTong");
-    //string? connectionString = builder.Configuration.GetConnectionString("SmarterDB");
-    options.UseSqlServer(connectionString);
+    string connectionStringName = string.Empty;
+
+	switch (Environment.MachineName)
+	{
+		case "ASUS702": connectionStringName = "Localhost702"; break;
+		case "br-not-dev-17": connectionStringName = "LocalHostIPSTong"; break;
+		default: throw new Exception("This machine has no database connection string associated");
+	}
+
+	string? connectionString = builder.Configuration.GetConnectionString(connectionStringName);
+
+	options.UseSqlServer(connectionString);
 });
 
 IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
