@@ -1,5 +1,4 @@
-﻿using System.Net.Mime;
-using static Shopping.Web.Enumerators.StaticDetails;
+﻿using static Shopping.Web.Enumerators.StaticDetails;
 
 namespace Shopping.Web.Models
 {
