@@ -8,6 +8,8 @@ namespace Shopping.Web.Enumerators
     {
         public static string CouponAPIBase { get; set; }
         public static string AuthAPIBase { get; set; }
+        
+        public const string TokenCookie = "JWTToken";
 
         public enum ApiMethod
         {
