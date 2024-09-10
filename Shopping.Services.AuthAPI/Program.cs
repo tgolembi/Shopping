@@ -14,7 +14,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 	switch (Environment.MachineName)
 	{
 		case "ASUS702": connectionStringName = "Localhost702"; break;
-		case "br-not-dev-17": connectionStringName = "LocalHostIPSTong"; break;
+		case "BR-NOT-DEV-17": connectionStringName = "LocalHostIPSTong"; break;
 		default: throw new Exception("This machine has no database connection string associated");
 	}
 
