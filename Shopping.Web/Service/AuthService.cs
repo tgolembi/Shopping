@@ -30,7 +30,7 @@ namespace Shopping.Web.Service
 				ApiMethod = StaticDetails.ApiMethod.POST,
 				Data = loginDTO,
 				Url = StaticDetails.AuthAPIBase + "/auth/login"
-			});
+			}, withBearerToken: false);
 		}
 
 		public async Task<ResponseDTO?> RegisterAsync(RegistrationDTO registrationDTO)
@@ -40,7 +40,7 @@ namespace Shopping.Web.Service
 				ApiMethod = StaticDetails.ApiMethod.POST,
 				Data = registrationDTO,
 				Url = StaticDetails.AuthAPIBase + "/auth/register"
-			});
+			}, withBearerToken: false);
 		}
 	}
 }

@@ -9,13 +9,15 @@ namespace Shopping.Web.Service
     public class BaseService : IBaseService
     {
         private readonly IHttpClientFactory _httpClientFactory;
+        private readonly ITokenProvider _tokenProvider;
 
-        public BaseService(IHttpClientFactory httpClientFactory)
+        public BaseService(IHttpClientFactory httpClientFactory, ITokenProvider tokenProvider)
         {
             _httpClientFactory = httpClientFactory;
+            _tokenProvider = tokenProvider;
         }
 
-        public async Task<ResponseDTO?> SendAsync(RequestDTO requestDTO)
+        public async Task<ResponseDTO?> SendAsync(RequestDTO requestDTO, bool withBearerToken = true)
         {
             try
             {
@@ -25,7 +27,11 @@ namespace Shopping.Web.Service
                 message.Headers.Add("Accept", "application/json");
                 message.RequestUri = new Uri(requestDTO.Url);
 
-                //TODO: AddToken
+                if (withBearer)
+                {
+                    var token = _tokenProvider.GetToken();
+                    message.Headers.Add("Authorization", $"Bearer {token}");
+                }
 
                 if (requestDTO.Data != null)
                 {

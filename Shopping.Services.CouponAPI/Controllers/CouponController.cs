@@ -1,16 +1,15 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Shopping.Services.CouponAPI.Data;
 using Shopping.Services.CouponAPI.Models;
 using Shopping.Services.CouponAPI.Models.DTO;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Shopping.Services.CouponAPI.Controllers
 {
     [Route("api/coupon")]
     [ApiController]
+    [Authorize]
     public class CouponController : ControllerBase
     {
         private readonly AppDbContext _dbContext;

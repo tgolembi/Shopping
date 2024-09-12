@@ -1,5 +1,7 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 using Shopping.Services.AuthAPI.Data;
 using Shopping.Services.AuthAPI.Models;
 using Shopping.Services.AuthAPI.Service;
