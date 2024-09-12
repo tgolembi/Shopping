@@ -24,6 +24,10 @@ namespace Shopping.Web.Controllers
             {
                 list = JsonHelper.Deserialize<List<CouponDTO>>(Convert.ToString(response.Result));
             }
+            else
+            {
+				SetClientErrorMessage(response?.Message);
+            }
 
             return View(list);
         }
@@ -43,8 +47,12 @@ namespace Shopping.Web.Controllers
                 if (response != null && response.Result != null && response.Success)
                 {
                     return RedirectToAction(nameof(CouponIndex));
-                }
-            }
+				}
+				else
+				{
+					SetClientErrorMessage(response?.Message);
+				}
+			}
             return View(coupon);
         }
 
@@ -56,8 +64,12 @@ namespace Shopping.Web.Controllers
             {
                 CouponDTO? coupon = JsonHelper.Deserialize<CouponDTO>(Convert.ToString(response.Result));
                 return View(coupon);
-            }
-            return NotFound();
+			}
+			else
+			{
+				SetClientErrorMessage(response?.Message);
+			}
+			return NotFound();
         }
 
         [HttpPost]
@@ -68,8 +80,17 @@ namespace Shopping.Web.Controllers
             if (response != null && response.Result != null && response.Success)
             {
                 return RedirectToAction(nameof(CouponIndex));
-            }
-            return View(coupon);
+			}
+			else
+			{
+				SetClientErrorMessage(response?.Message);
+			}
+			return View(coupon);
         }
+
+        private void SetClientErrorMessage(string? message)
+        {
+			TempData["error"] = message;
+		}
     }
 }
