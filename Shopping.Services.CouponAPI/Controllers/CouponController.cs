@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using Shopping.Services.CouponAPI.Data;
 using Shopping.Services.CouponAPI.Models;
 using Shopping.Services.CouponAPI.Models.DTO;
+using Shopping.Services.CouponAPI.Extensions;
+using Shopping.Services.CouponAPI.Enumerators;
 
 namespace Shopping.Services.CouponAPI.Controllers
 {
@@ -90,6 +92,7 @@ namespace Shopping.Services.CouponAPI.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = nameof(Role.ADMIN))]
         public ResponseDTO Post ([FromBody]CouponDTO couponDTO)
         {
             try
@@ -111,7 +114,8 @@ namespace Shopping.Services.CouponAPI.Controllers
         }
 
         [HttpPut]
-        public ResponseDTO Put ([FromBody]CouponDTO couponDTO)
+		[Authorize(Roles = nameof(Role.ADMIN))]
+		public ResponseDTO Put ([FromBody]CouponDTO couponDTO)
         {
             try
             {
@@ -142,7 +146,8 @@ namespace Shopping.Services.CouponAPI.Controllers
         }
 
         [HttpDelete("{id:int}")]
-        public ResponseDTO Delete (int id)
+		[Authorize(Roles = nameof(Role.ADMIN))]
+		public ResponseDTO Delete (int id)
         {
             try
             {
