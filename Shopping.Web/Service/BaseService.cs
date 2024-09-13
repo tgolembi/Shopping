@@ -27,7 +27,7 @@ namespace Shopping.Web.Service
                 message.Headers.Add("Accept", "application/json");
                 message.RequestUri = new Uri(requestDTO.Url);
 
-                if (withBearer)
+                if (withBearerToken)
                 {
                     var token = _tokenProvider.GetToken();
                     message.Headers.Add("Authorization", $"Bearer {token}");
