@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using Shopping.Services.CouponAPI.Data;
 using Shopping.Services.CouponAPI.Models;
 using Shopping.Services.CouponAPI.Models.DTO;
-using Shopping.Services.CouponAPI.Extensions;
 using Shopping.Services.CouponAPI.Enumerators;
 
 namespace Shopping.Services.CouponAPI.Controllers
