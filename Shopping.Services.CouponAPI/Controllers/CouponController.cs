@@ -13,8 +13,8 @@ namespace Shopping.Services.CouponAPI.Controllers
     [Authorize]
     public class CouponController : ControllerBase
     {
+        private ResponseDTO _response = new();
         private readonly AppDbContext _dbContext;
-        private ResponseDTO _response = new ResponseDTO();
         private readonly IMapper _mapper;
 
         public CouponController (AppDbContext dbContext, IMapper mapper)
